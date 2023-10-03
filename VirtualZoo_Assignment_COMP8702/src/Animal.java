@@ -1,4 +1,4 @@
-public class Animal {
+abstract class Animal {
     private String name;
     private String species;
     private int hunger = 50;
@@ -10,6 +10,12 @@ public class Animal {
         this.name = name;
         this.species = species;
     }
+
+    abstract void giveFood();
+
+    abstract void giveWater();
+
+    abstract void giveToy();
 
     public String getPreviousItem() {
         return previousItem;
@@ -62,41 +68,6 @@ public class Animal {
     public boolean isDead() {
         return hunger > 100 || thirst > 100 || boredom > 100;
     }
-
-    public void giveFood() {
-        hunger = Math.max(hunger - 30, 0); // to select zero when the hunger goes negative
-        thirst += 15;
-        boredom += 15;
-        VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 30);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(name + " has died");
-        }
-    }
-
-    public void giveWater() {
-        hunger += 15;
-        thirst = Math.max(thirst - 30, 0);
-        boredom += 15;
-        VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 20);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(name + " has died");
-        }
-    }
-
-    public void giveToy() {
-        hunger += 15;
-        thirst += 15;
-        boredom = Math.max(boredom - 30, 0);
-        VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 40);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(name + " has died");
-        }
-
-    }
-
 
     public String toString() {
         String statusMessage = isDead() ? "Name = " + getName() + " (Dead)\n" : "Name = " + getName() + "\n";

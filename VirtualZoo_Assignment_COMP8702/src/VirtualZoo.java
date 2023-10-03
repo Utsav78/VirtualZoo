@@ -26,16 +26,6 @@ public class VirtualZoo {
 
 
     public void beginSimulation() {
-//        displayWelcome();
-////        ArrayList<Animal> allZooAnimals = animalSelection();
-////        System.out.println(allZooAnimals.get(1).getName());
-//
-//        Animal myPet = new Animal("Tony", "Tiger");
-//        askItem(myPet);
-//        System.out.println(myPet);
-//        askItem(myPet);
-//        System.out.println(myPet);
-//        System.out.println(VirtualZoo.getTotalCost());
         displayWelcome();
         ArrayList<Animal> zooAnimals = animalSelection();
         weekCycle(zooAnimals);
@@ -87,10 +77,27 @@ public class VirtualZoo {
             inputSpecies = scan.nextLine().trim().toLowerCase();
 
             switch (inputSpecies) {
-                case "tiger", "giraffe", "hippo", "panda", "monkey" -> {
+                case "tiger" -> {
                     isValidSpecies = true;
-                    animal = new Animal(name, inputSpecies.substring(0, 1).toUpperCase() + inputSpecies.substring(1));
+                    animal = new Tiger(name);
                 }
+                case "giraffe" -> {
+                    isValidSpecies = true;
+                    animal = new Giraffe(name);
+                }
+                case "hippo" -> {
+                    isValidSpecies = true;
+                    animal = new Hippo(name);
+                }
+                case "panda" -> {
+                    isValidSpecies = true;
+                    animal = new Panda(name);
+                }
+                case "monkey" -> {
+                    isValidSpecies = true;
+                    animal = new Monkey(name);
+                }
+
                 default -> System.out.println("That is not a valid species");
             }
         }
@@ -112,7 +119,7 @@ public class VirtualZoo {
     }
 
     public void askItem(Animal animal) {
-        String[] validItems = { "food", "water", "toy" };
+        String[] validItems = {"food", "water", "toy"};
         String item;
         boolean isValidItem = false;
 
