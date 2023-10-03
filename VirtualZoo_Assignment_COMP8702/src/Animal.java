@@ -4,12 +4,19 @@ public class Animal {
     private int hunger = 50;
     private int thirst = 50;
     private int boredom = 50;
-    //private String previousItem = "";
-
+    private String previousItem = "";
 
     public Animal(String name, String species) {
         this.name = name;
         this.species = species;
+    }
+
+    public String getPreviousItem() {
+        return previousItem;
+    }
+
+    public void setPreviousItem(String previousItem) {
+        this.previousItem = previousItem;
     }
 
     public String getName() {

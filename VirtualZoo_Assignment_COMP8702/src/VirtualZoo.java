@@ -11,7 +11,6 @@ public class VirtualZoo {
     private final Scanner scan;
 
     private final ArrayList<String> animalNameList = new ArrayList<>();
-    private String previousItem = "";
 
     public VirtualZoo() {
         scan = new Scanner(System.in);
@@ -122,9 +121,9 @@ public class VirtualZoo {
             item = scan.nextLine().trim().toLowerCase();
 
             if (Arrays.asList(validItems).contains(item)) {
-                if (!previousItem.equals(item)) {
+                if (!animal.getPreviousItem().equals(item)) {
                     isValidItem = true;
-                    previousItem = item;
+                    animal.setPreviousItem(item);
 
                     switch (item) {
                         case "food" -> animal.giveFood();
@@ -141,22 +140,19 @@ public class VirtualZoo {
     }
 
     public void weekCycle(ArrayList<Animal> zooAnimals) {
-        String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
-        "Saturday", "Sunday"};
-        for (int i = 0; i < daysOfWeek.length; i++) {
+        String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+        for (String s : daysOfWeek) {
 
-            System.out.println("\nThe current day is " + daysOfWeek[i] + "\n");
-            for (int j = 0; j < zooAnimals.size(); j++) {
-                Animal animal = zooAnimals.get(j);
+            System.out.println("\nThe current day is " + s + "\n");
+            for (Animal animal : zooAnimals) {
                 System.out.println(animal.toString());
             }
-            for (int j = 0; j < zooAnimals.size(); j++) {
-                Animal animal = zooAnimals.get(j);
+            for (Animal animal : zooAnimals) {
                 if (!animal.isDead())
                     askItem(animal);
             }
         }
-        System.out.println("Total week cost = $" + totalCost);
+        System.out.println("\nTotal week cost = $" + totalCost);
     }
 
     //-------------------------operational methods------------------------------
