@@ -1,3 +1,7 @@
+/**
+ * 
+ * @author Your name: UTSAV BUDATHOKI, student number: 2306084 and FAN: buda0027 here
+ */
 abstract class Animal {
     private String name;
     private String species;
@@ -11,10 +15,9 @@ abstract class Animal {
         this.species = species;
     }
 
+    // Abstract methods for subclasses to implement
     abstract void giveFood();
-
     abstract void giveWater();
-
     abstract void giveToy();
 
     public String getPreviousItem() {

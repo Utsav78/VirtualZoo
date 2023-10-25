@@ -4,12 +4,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
+ *
  * @author Your name: UTSAV BUDATHOKI, student number: 2306084 and FAN: buda0027 here
  */
 public class VirtualZoo {
     private static int totalCost;
     private final Scanner scan;
-
     private final ArrayList<String> animalNameList = new ArrayList<>();
 
     public VirtualZoo() {
@@ -24,13 +24,19 @@ public class VirtualZoo {
         VirtualZoo.totalCost = totalCost;
     }
 
-
+    /**
+     * Manages the main loop for simulating week's operation.
+     */
     public void beginSimulation() {
         displayWelcome();
         ArrayList<Animal> zooAnimals = animalSelection();
         weekCycle(zooAnimals);
     }
-
+    /**
+     * Prompt the user to input the total number of animals in the zoo until the valid number is received
+     *
+     * @return The valid total number of animals
+     */
     public int askNumberAnimals() {
         int totalAnimals = 0;
         boolean isValidInput = false;
@@ -52,7 +58,12 @@ public class VirtualZoo {
         } while (!isValidInput);
         return totalAnimals;
     }
-
+    /**
+     * Prompt the user to input the name of an animal.
+     *
+     * @param id The order of the animal being named.
+     * @return The name of the animal.
+     */
     public String askAnimalName(int id) {
         String animalName = "";
         while (true) {
@@ -68,6 +79,12 @@ public class VirtualZoo {
         return animalName;
     }
 
+    /**
+     * Prompt the user to input the species of an animal and create an Animal object.
+     *
+     * @param name The name of the animal.
+     * @return An Animal object representing the specified species.
+     */
     public Animal askAnimalSpecies(String name) {
         boolean isValidSpecies = false;
         Animal animal = null;
@@ -104,6 +121,11 @@ public class VirtualZoo {
         return animal;
     }
 
+    /**
+     * Handles the process of selecting and creating animals in the zoo.
+     *
+     * @return An ArrayList of Animal objects representing the animals in the zoo.
+     */
     public ArrayList<Animal> animalSelection() {
         int numberOfAnimals = askNumberAnimals();
         System.out.println();
@@ -117,7 +139,11 @@ public class VirtualZoo {
         }
         return allZooAnimals;
     }
-
+    /**
+     * Prompt the user to input an item (food, water, toy) for a specific animal.
+     *
+     * @param animal The Animal object for which the user is specifying an item.
+     */
     public void askItem(Animal animal) {
         String[] validItems = {"food", "water", "toy"};
         String item;
@@ -137,6 +163,12 @@ public class VirtualZoo {
                         case "water" -> animal.giveWater();
                         case "toy" -> animal.giveToy();
                     }
+
+//                    if (animal.isDead()) {
+//                        totalCost += 1000;
+//                        System.out.println(animal.getName() + " has died");
+//                    }
+
                 } else {
                     System.out.println("You cannot give the same item as yesterday");
                 }
@@ -146,10 +178,14 @@ public class VirtualZoo {
         }
     }
 
+    /**
+     * Simulates a week's cycle for all the animals in the zoo.
+     *
+     * @param zooAnimals An ArrayList of Animal objects representing the animals in the zoo.
+     */
     public void weekCycle(ArrayList<Animal> zooAnimals) {
         String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
         for (String s : daysOfWeek) {
-
             System.out.println("\nThe current day is " + s + "\n");
             for (Animal animal : zooAnimals) {
                 System.out.println(animal.toString());

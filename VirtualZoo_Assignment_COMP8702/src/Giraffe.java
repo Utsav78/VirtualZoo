@@ -1,3 +1,7 @@
+/**
+ *
+ * @author Your name: UTSAV BUDATHOKI, student number: 2306084 and FAN: buda0027 here
+ */
 public class Giraffe extends Animal {
     public Giraffe(String name) {
         super(name, "Giraffe");
