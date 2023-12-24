@@ -13,10 +13,6 @@ public class Giraffe extends Animal {
         setThirst(getThirst() + 30);
         setBoredom(getBoredom() + 20);
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 100);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
     }
 
     @Override
@@ -25,11 +21,6 @@ public class Giraffe extends Animal {
         setThirst(Math.max(getThirst() - 50, 0));
         setBoredom(getBoredom() + 30);
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 40);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
-
     }
 
     @Override
@@ -38,9 +29,5 @@ public class Giraffe extends Animal {
         setThirst(getThirst() + 10);
         setBoredom(Math.max(getBoredom() - 40, 0));
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 75);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
     }
 }

@@ -13,10 +13,6 @@ public class Monkey extends Animal {
         setThirst(getThirst() + 10);
         setBoredom(getBoredom() + 10);
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 5);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
     }
 
     @Override
@@ -25,11 +21,6 @@ public class Monkey extends Animal {
         setThirst(Math.max(getThirst() - 40, 0));
         setBoredom(getBoredom() + 10);
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 5);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
-
     }
 
     @Override
@@ -38,9 +29,5 @@ public class Monkey extends Animal {
         setThirst(getThirst() + 10);
         setBoredom(Math.max(getBoredom() - 15, 0));
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 15);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
     }
 }

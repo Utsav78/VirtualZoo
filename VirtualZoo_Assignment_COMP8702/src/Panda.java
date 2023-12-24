@@ -1,5 +1,4 @@
 /**
- *
  * @author Your name: UTSAV BUDATHOKI, student number: 2306084 and FAN: buda0027 here
  */
 public class Panda extends Animal {
@@ -13,10 +12,6 @@ public class Panda extends Animal {
         setThirst(getThirst() + 15);
         setBoredom(getBoredom() - 5);
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 70);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
     }
 
     @Override
@@ -25,11 +20,6 @@ public class Panda extends Animal {
         setThirst(Math.max(getThirst() - 80, 0));
         setBoredom(getBoredom() + 10);
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 5);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
-
     }
 
     @Override
@@ -38,9 +28,5 @@ public class Panda extends Animal {
         setThirst(getThirst() + 15);
         setBoredom(Math.max(getBoredom() - 40, 0));
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 20);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
     }
 }

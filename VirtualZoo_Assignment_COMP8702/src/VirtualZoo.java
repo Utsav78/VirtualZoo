@@ -4,7 +4,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
  * @author Your name: UTSAV BUDATHOKI, student number: 2306084 and FAN: buda0027 here
  */
 public class VirtualZoo {
@@ -32,6 +31,7 @@ public class VirtualZoo {
         ArrayList<Animal> zooAnimals = animalSelection();
         weekCycle(zooAnimals);
     }
+
     /**
      * Prompt the user to input the total number of animals in the zoo until the valid number is received
      *
@@ -58,6 +58,7 @@ public class VirtualZoo {
         } while (!isValidInput);
         return totalAnimals;
     }
+
     /**
      * Prompt the user to input the name of an animal.
      *
@@ -139,6 +140,7 @@ public class VirtualZoo {
         }
         return allZooAnimals;
     }
+
     /**
      * Prompt the user to input an item (food, water, toy) for a specific animal.
      *
@@ -164,10 +166,10 @@ public class VirtualZoo {
                         case "toy" -> animal.giveToy();
                     }
 
-//                    if (animal.isDead()) {
-//                        totalCost += 1000;
-//                        System.out.println(animal.getName() + " has died");
-//                    }
+                    if (animal.isDead()) {
+                        totalCost += 1000;
+                        System.out.println(animal.getName() + " has died");
+                    }
 
                 } else {
                     System.out.println("You cannot give the same item as yesterday");

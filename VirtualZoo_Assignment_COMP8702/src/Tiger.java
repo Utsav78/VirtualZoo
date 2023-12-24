@@ -13,10 +13,6 @@ public class Tiger extends Animal {
         setThirst(getThirst() + 15);
         setBoredom(getBoredom() + 15);
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 30);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
     }
 
     @Override
@@ -25,11 +21,6 @@ public class Tiger extends Animal {
         setThirst(Math.max(getThirst() - 30, 0));
         setBoredom(getBoredom() + 15);
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 20);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
-
     }
 
     @Override
@@ -38,9 +29,5 @@ public class Tiger extends Animal {
         setThirst(getThirst() + 15);
         setBoredom(Math.max(getBoredom() - 30, 0));
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 40);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
     }
 }

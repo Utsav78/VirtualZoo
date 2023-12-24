@@ -13,10 +13,6 @@ public class Hippo extends Animal {
         setThirst(getThirst() + 5);
         setBoredom(getBoredom() + 25);
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 50);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
     }
 
     @Override
@@ -25,11 +21,6 @@ public class Hippo extends Animal {
         setThirst(Math.max(getThirst() - 25, 0));
         setBoredom(getBoredom() + 25);
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 50);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
-
     }
 
     @Override
@@ -38,9 +29,5 @@ public class Hippo extends Animal {
         setThirst(getThirst() + 20);
         setBoredom(Math.max(getBoredom() - 50, 0));
         VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 20);
-        if (isDead()) {
-            VirtualZoo.setTotalCost(VirtualZoo.getTotalCost() + 1000);
-            System.out.println(getName() + " has died");
-        }
     }
 }
